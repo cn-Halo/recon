@@ -13,12 +13,12 @@ public abstract class AbstractChecker<T> implements Checker<T> {
 
     private List<ReconResult> results = new ArrayList<>();
 
-    public void addResult(ReconData o1, ReconData o2, ResultTypeEnum resultTypeEnum) {
-
-    }
-
     public void addResult(ReconResult result) {
         results.add(result);
+    }
+
+    public List<ReconResult> getResult() {
+        return results;
     }
 
 }

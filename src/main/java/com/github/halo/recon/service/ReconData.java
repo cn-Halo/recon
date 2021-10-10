@@ -10,10 +10,6 @@ import java.math.BigDecimal;
  */
 public interface ReconData {
 
-    String outTradeNo();
-
-    String outRefundNo();
-
     /**
      * 订单金额
      *
@@ -21,9 +17,7 @@ public interface ReconData {
      */
     @NotNull
     BigDecimal amount();
-
-    String tradeStatus();
-
+    
     /**
      * 商户支付/退款订单号
      *

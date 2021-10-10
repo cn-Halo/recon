@@ -14,7 +14,7 @@ public class OrderAmountChecker extends AbstractChecker<ReconData> {
     public void check(ReconData o1, ReconData o2, CheckerChain chain) {
         ReconResultBuilder builder = ReconResultBuilder.instance().no(o1.no()).amount(o1.amount());
         ReconResult result = null;
-        if (o1.amount().equals(o2)) {
+        if (o1.amount().equals(o2.amount())) {
             result = builder
                     .result(ResultTypeEnum.SUCCESS.name())
                     .resultDesc(ResultTypeEnum.SUCCESS.msg()).build();

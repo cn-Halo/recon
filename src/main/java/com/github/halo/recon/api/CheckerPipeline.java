@@ -47,9 +47,22 @@ public class CheckerPipeline {
             } else {
                 checkerChain.check(q1, q2);
             }
-
-
         }
     }
+
+    public void check(final Object q1, final Object q2) {
+        for (CheckerChain checkerChain : checkerChains) {
+            if (executor != null) {
+                Object fQ1 = q1;
+                Object fQ2 = q2;
+                executor.submit(() -> {
+                    checkerChain.check(fQ1, fQ2);
+                });
+            } else {
+                checkerChain.check(q1, q2);
+            }
+        }
+    }
+
 
 }
