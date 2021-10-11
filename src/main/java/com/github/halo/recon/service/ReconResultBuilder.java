@@ -12,6 +12,8 @@ public class ReconResultBuilder {
     BigDecimal amount;
     String result;
     String resultDesc;
+    ReconData o1;
+    ReconData o2;
 
     public static ReconResultBuilder instance() {
         return new ReconResultBuilder();
@@ -37,6 +39,16 @@ public class ReconResultBuilder {
         return this;
     }
 
+    public ReconResultBuilder o1(ReconData o1) {
+        this.o1 = o1;
+        return this;
+    }
+
+    public ReconResultBuilder o2(ReconData o2) {
+        this.o2 = o2;
+        return this;
+    }
+
     public ReconResult build() {
         return new ReconResult() {
 
@@ -58,6 +70,16 @@ public class ReconResultBuilder {
             @Override
             public String resultDesc() {
                 return resultDesc;
+            }
+
+            @Override
+            public ReconData o1() {
+                return o1;
+            }
+
+            @Override
+            public ReconData o2() {
+                return o2;
             }
         };
     }

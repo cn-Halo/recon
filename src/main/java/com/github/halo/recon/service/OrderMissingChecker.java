@@ -17,10 +17,6 @@ public class OrderMissingChecker extends AbstractChecker<List<ReconData>> {
     public void check(List<ReconData> o1, List<ReconData> o2, CheckerChain chain) {
         Iterator<ReconData> itr2 = o2.iterator();
         for (ReconData d1 : o1) {
-//            if (d1.no() == null)
-//                continue;
-//            if (d1.amount() == null)
-//                continue;
             ReconData t2 = null;
             while (itr2.hasNext()) {
                 ReconData d2 = itr2.next();
@@ -32,9 +28,14 @@ public class OrderMissingChecker extends AbstractChecker<List<ReconData>> {
             }
             if (t2 == null) {
                 //o2漏单
-                ReconResult result = ReconResultBuilder.instance().no(d1.no()).amount(d1.amount())
+                ReconResult result = ReconResultBuilder.instance()
+                        .no(d1.no())
+                        .amount(d1.amount())
                         .result(ResultTypeEnum.ORDER_MISSING_ERROR.name())
-                        .resultDesc(String.format(tpl, d1.source())).build();
+                        .resultDesc(String.format(tpl, d1.source()))
+                        .o1(d1)
+                        .o2(null)
+                        .build();
                 super.addResult(result);
             } else
                 chain.check(d1, t2);
@@ -42,9 +43,14 @@ public class OrderMissingChecker extends AbstractChecker<List<ReconData>> {
 
         for (ReconData d2 : o2) {
             //都是o1漏单的
-            ReconResult result = ReconResultBuilder.instance().no(d2.no()).amount(d2.amount())
+            ReconResult result = ReconResultBuilder.instance()
+                    .no(d2.no())
+                    .amount(d2.amount())
                     .result(ResultTypeEnum.ORDER_MISSING_ERROR.name())
-                    .resultDesc(String.format(tpl, d2.source())).build();
+                    .resultDesc(String.format(tpl, d2.source()))
+                    .o1(null)
+                    .o2(d2)
+                    .build();
             super.addResult(result);
         }
     }

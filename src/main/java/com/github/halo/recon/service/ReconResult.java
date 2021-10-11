@@ -16,5 +16,9 @@ public interface ReconResult {
 
     String resultDesc();
 
+    ReconData o1();
+
+    ReconData o2();
+
 
 }

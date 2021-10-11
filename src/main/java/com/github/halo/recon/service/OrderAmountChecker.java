@@ -12,17 +12,23 @@ public class OrderAmountChecker extends AbstractChecker<ReconData> {
 
     @Override
     public void check(ReconData o1, ReconData o2, CheckerChain chain) {
-        ReconResultBuilder builder = ReconResultBuilder.instance().no(o1.no()).amount(o1.amount());
+        ReconResultBuilder builder = ReconResultBuilder.instance()
+                .no(o1.no())
+                .amount(o1.amount())
+                .o1(o1)
+                .o2(o2);
         ReconResult result = null;
         if (o1.amount().equals(o2.amount())) {
             result = builder
                     .result(ResultTypeEnum.SUCCESS.name())
-                    .resultDesc(ResultTypeEnum.SUCCESS.msg()).build();
+                    .resultDesc(ResultTypeEnum.SUCCESS.msg())
+                    .build();
         } else {
             result = builder
                     .result(ResultTypeEnum.ORDER_AMOUNT_ERROR.name())
                     .resultDesc(String.format(tpl, ResultTypeEnum.ORDER_AMOUNT_ERROR.msg()
-                            , o1.source(), o1.amount(), o2.source(), o2.amount())).build();
+                            , o1.source(), o1.amount(), o2.source(), o2.amount()))
+                    .build();
         }
         super.addResult(result);
     }
