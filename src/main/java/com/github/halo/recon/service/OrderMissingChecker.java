@@ -17,6 +17,12 @@ public class OrderMissingChecker extends AbstractChecker<List<ReconData>> {
     public void check(List<ReconData> o1, List<ReconData> o2, CheckerChain chain) {
         Iterator<ReconData> itr2 = o2.iterator();
         for (ReconData d1 : o1) {
+            if (d1.no() == null)
+                continue;
+            if (d1.amount() == null)
+                continue;
+            if (d1.source() == null)
+                continue;
             ReconData t2 = null;
             while (itr2.hasNext()) {
                 ReconData d2 = itr2.next();

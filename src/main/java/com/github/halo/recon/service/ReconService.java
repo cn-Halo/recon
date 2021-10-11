@@ -14,6 +14,11 @@ public class ReconService {
 
 
     public List<ReconResult> check(List<ReconData> o1, List<ReconData> o2) {
+        if (o1 == null)
+            throw new NullPointerException("o1 is null");
+        if (o2 == null)
+            throw new NullPointerException("o2 is null");
+
         Queue<Checker> checkers = new LinkedList<>();
         OrderAmountChecker orderAmountChecker = new OrderAmountChecker();
         OrderMissingChecker orderMissingChecker = new OrderMissingChecker();

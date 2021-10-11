@@ -52,6 +52,11 @@ public class Test {
             return this.source;
         }
 
+        @Override
+        public String tradeStatus() {
+            return "TRADE_SUCCESS";
+        }
+
         public MyReconData amount(String amount) {
             this.amount = new BigDecimal(amount);
             return this;

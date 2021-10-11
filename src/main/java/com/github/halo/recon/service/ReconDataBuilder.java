@@ -12,6 +12,7 @@ public class ReconDataBuilder {
     private BigDecimal amount;
     private String no;
     private String source;
+    private String tradeStatus;
 
 
     public ReconDataBuilder amount(BigDecimal amount) {
@@ -28,6 +29,12 @@ public class ReconDataBuilder {
         this.source = source;
         return this;
     }
+
+    public ReconDataBuilder tradeStatus(String tradeStatus) {
+        this.tradeStatus = tradeStatus;
+        return this;
+    }
+
 
     public static ReconDataBuilder instance() {
         return new ReconDataBuilder();
@@ -48,6 +55,11 @@ public class ReconDataBuilder {
             @Override
             public String source() {
                 return source;
+            }
+
+            @Override
+            public String tradeStatus() {
+                return tradeStatus;
             }
         };
     }

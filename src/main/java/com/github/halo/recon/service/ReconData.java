@@ -9,25 +9,31 @@ import java.math.BigDecimal;
 public interface ReconData {
 
     /**
-     * 订单金额
+     * 订单金额* 必填
      *
      * @return
      */
     BigDecimal amount();
 
     /**
-     * 商户支付/退款订单号
+     * 商户支付/退款订单号* 必填
      *
      * @return
      */
     String no();
 
     /**
-     * 账单源
+     * 账单源* 必填
      *
      * @return
      */
     String source();
-    
+
+    /**
+     * 订单状态
+     *
+     * @return
+     */
+    String tradeStatus();
 
 }
