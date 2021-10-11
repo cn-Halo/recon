@@ -35,9 +35,9 @@ public class OrderMissingChecker extends AbstractChecker<List<ReconData>> {
             if (t2 == null) {
                 //o2漏单
                 ReconResult result = ReconResultBuilder.instance()
-                        .no(d1.no())
-                        .amount(d1.amount())
-                        .result(ResultTypeEnum.ORDER_MISSING_ERROR.name())
+//                        .no(d1.no())
+//                        .amount(d1.amount())
+                        .result(ResultTypeEnum.ORDER_MISSING_ERROR)
                         .resultDesc(String.format(tpl, d1.source()))
                         .o1(d1)
                         .o2(null)
@@ -50,9 +50,9 @@ public class OrderMissingChecker extends AbstractChecker<List<ReconData>> {
         for (ReconData d2 : o2) {
             //都是o1漏单的
             ReconResult result = ReconResultBuilder.instance()
-                    .no(d2.no())
-                    .amount(d2.amount())
-                    .result(ResultTypeEnum.ORDER_MISSING_ERROR.name())
+//                    .no(d2.no())
+//                    .amount(d2.amount())
+                    .result(ResultTypeEnum.ORDER_MISSING_ERROR)
                     .resultDesc(String.format(tpl, d2.source()))
                     .o1(null)
                     .o2(d2)

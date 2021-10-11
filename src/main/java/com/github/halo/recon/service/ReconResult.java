@@ -1,18 +1,16 @@
 package com.github.halo.recon.service;
 
-import java.math.BigDecimal;
-
 /**
  * @author yzm
  * @date 2021/10/10 20:16
  */
 public interface ReconResult {
 
-    String no();
+//    String no();
+//
+//    BigDecimal amount();
 
-    BigDecimal amount();
-
-    String result();
+    ResultTypeEnum result();
 
     String resultDesc();
 

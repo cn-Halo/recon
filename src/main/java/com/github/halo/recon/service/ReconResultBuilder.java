@@ -1,16 +1,14 @@
 package com.github.halo.recon.service;
 
-import java.math.BigDecimal;
-
 /**
  * @author yzm
  * @date 2021/10/10 20:45
  */
 public class ReconResultBuilder {
 
-    String no;
-    BigDecimal amount;
-    String result;
+    //    String no;
+//    BigDecimal amount;
+    ResultTypeEnum result;
     String resultDesc;
     ReconData o1;
     ReconData o2;
@@ -19,17 +17,17 @@ public class ReconResultBuilder {
         return new ReconResultBuilder();
     }
 
-    public ReconResultBuilder no(String no) {
-        this.no = no;
-        return this;
-    }
+//    public ReconResultBuilder no(String no) {
+//        this.no = no;
+//        return this;
+//    }
+//
+//    public ReconResultBuilder amount(BigDecimal amount) {
+//        this.amount = amount;
+//        return this;
+//    }
 
-    public ReconResultBuilder amount(BigDecimal amount) {
-        this.amount = amount;
-        return this;
-    }
-
-    public ReconResultBuilder result(String result) {
+    public ReconResultBuilder result(ResultTypeEnum result) {
         this.result = result;
         return this;
     }
@@ -52,18 +50,18 @@ public class ReconResultBuilder {
     public ReconResult build() {
         return new ReconResult() {
 
-            @Override
-            public String no() {
-                return no;
-            }
+//            @Override
+//            public String no() {
+//                return no;
+//            }
+//
+//            @Override
+//            public BigDecimal amount() {
+//                return amount;
+//            }
 
             @Override
-            public BigDecimal amount() {
-                return amount;
-            }
-
-            @Override
-            public String result() {
+            public ResultTypeEnum result() {
                 return result;
             }
 
