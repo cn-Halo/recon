@@ -1,7 +1,5 @@
 package com.github.halo.recon.service;
 
-import com.sun.istack.internal.NotNull;
-
 import java.math.BigDecimal;
 
 /**
@@ -15,15 +13,13 @@ public interface ReconData {
      *
      * @return
      */
-    @NotNull
     BigDecimal amount();
-    
+
     /**
      * 商户支付/退款订单号
      *
      * @return
      */
-    @NotNull
     String no();
 
     /**
@@ -31,7 +27,6 @@ public interface ReconData {
      *
      * @return
      */
-    @NotNull
     String source();
 
 }
