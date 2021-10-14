@@ -18,7 +18,7 @@ public class OrderAmountChecker extends AbstractChecker<ReconData> {
                 .o1(o1)
                 .o2(o2);
         ReconResult result = null;
-        if (o1.amount().equals(o2.amount())) {
+        if (o1.amount().compareTo(o2.amount()) == 0) {
             result = builder
                     .result(ResultTypeEnum.SUCCESS)
                     .resultDesc(ResultTypeEnum.SUCCESS.msg())

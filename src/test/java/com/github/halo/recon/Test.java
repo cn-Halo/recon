@@ -18,7 +18,7 @@ public class Test {
 
     public static void main(String[] args) {
         ReconService reconService = new ReconService();
-        List<ReconData> o1 = Arrays.asList(new MyReconData().no("1").amount("1.0").source("微信"),
+        List<ReconData> o1 = Arrays.asList(new MyReconData().no("1").amount("1.00").source("微信"),
                 new MyReconData().no("2").amount("2").source("微信"),
                 new MyReconData().no("3").amount("13").source("微信"));
 
