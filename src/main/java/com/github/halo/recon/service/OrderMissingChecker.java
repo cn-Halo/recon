@@ -15,7 +15,6 @@ public class OrderMissingChecker extends AbstractChecker<List<ReconData>> {
 
     @Override
     public void check(List<ReconData> o1, List<ReconData> o2, CheckerChain chain) {
-        Iterator<ReconData> itr2 = o2.iterator();
         for (ReconData d1 : o1) {
             if (d1.no() == null)
                 continue;
@@ -24,6 +23,7 @@ public class OrderMissingChecker extends AbstractChecker<List<ReconData>> {
             if (d1.source() == null)
                 continue;
             ReconData t2 = null;
+            Iterator<ReconData> itr2 = o2.iterator();
             while (itr2.hasNext()) {
                 ReconData d2 = itr2.next();
                 if (d1.no().equals(d2.no())) {
@@ -35,8 +35,6 @@ public class OrderMissingChecker extends AbstractChecker<List<ReconData>> {
             if (t2 == null) {
                 //o2漏单
                 ReconResult result = ReconResultBuilder.instance()
-//                        .no(d1.no())
-//                        .amount(d1.amount())
                         .result(ResultTypeEnum.ORDER_MISSING_ERROR)
                         .resultDesc(String.format(tpl, d1.source()))
                         .o1(d1)
